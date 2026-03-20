@@ -14,6 +14,8 @@ app.listen(PORT, function(){
 const publicPath = path.join(__dirname , 'public');
 const pagesPath = path.join(publicPath , 'pages');
 
+app.use('/assets', express.static(path.join(publicPath, 'assets')));
+
 app.get('/', function(req, res){
     res.sendFile(path.join(pagesPath, 'index.html'));
 });
@@ -24,4 +26,8 @@ app.get('/login', function(req, res){
 
 app.get('/cadastro', function(req, res){
     res.sendFile(path.join(pagesPath, 'cadastro.html'));
+});
+
+app.use(function(req, res){
+    res.status(404).sendFile(path.join(pagesPath, '404.html'));
 });

@@ -12,7 +12,7 @@ app.listen(PORT, function(){
 });
 
 const publicPath = path.join(__dirname , 'public');
-const pagesPath = path.join(__dirname , 'pages');
+const pagesPath = path.join(publicPath , 'pages');
 
 app.get('/', function(req, res){
     res.sendFile(path.join(pagesPath, 'index.html'));
